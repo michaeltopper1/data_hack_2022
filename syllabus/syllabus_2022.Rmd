@@ -20,3 +20,47 @@ editor_options:
 ---
 
 To make effective policy, it is important to understand how  
+
+
+# Schedule
+
+Note that topics can be excluded/extended based on student interest. In particular, if there are topics that are not listed here that students find interesting/want to know more about, please let us know and we can try to accommodate. 
+
+* **Week 1: Introduction to R and Piping**
+  + Topics (R): Data types (characters/strings/logicals), importing data (excel/csv emphasis), common statistics (mean/sd/var), introduction to piping with mutating variables/summarizing/filtering/renaming.
+  + Topics (Organization): Rprojects for file path management/collaboration, naming variables (e.g. snake_case and informative), the importance of READMEs, coding etiquette (leaving spaces, commenting etc.). 
+
+* **Week 2: Continuation of Cleaning**
+  + Topics (R): Grouping, further filtering with conditions, cleaning dates with `lubridate`.  
+  + Topics (Organization): Using RMarkdown for reproducible documents.
+
+* **Week 3: Visualization with ggplot2**
+  + Topics (R): ggplot2 grammar of graphics, facet wraps, aesthetic mappings, reasons to use ggplot2.
+  + Coding Check-in: Have us evaluate your code! Give us an example of a homework assignment or small project you completed and let us give feedback.
+  
+* **Week 4: Spatial data**
+  + Topics (R): `sf` package, `usmap`, raster vs. vector data, heatmaps, `mapview`.
+  + Check-in: Does every group have their topic/path to data? Should have data source identified by this point.  
+
+* **Week 5: Regular Expressions and Scraping Documents**
+  + Topics (R): Using regular expressions along with extract, str_detect, str_replace, separate etc. PDF scraping techniques using `pdftools` and `tabulizer`.
+  + In class activity: Scraping a PDF document using the tools discussed. 
+  + Quick presentation on the DO's and DON'Ts of visualizations.
+
+
+* **Week 6: Functions, Packages, and Programming**
+  + Topics (R): using functions to manage coding tasks and improve readability, if-statements, for-loops, creating packages to manage functions. 
+  + In class activity: create a package yourself! 
+
+* **Week 7: Webscraping**
+  + Topics (R): `rvest`, css selectors, brief mention of `RSelenium`. For-loops and if-statements. Functional programming with `lapply`/`map`. Reshaping data with `tidyr`.
+  + In-class activity of scraping data from a webpage and creating an effective visualization. Prize is a coupon for 1 redeemable handshake.
+
+* **Week 8: Merging Data + Regressions + Presentation of Models**
+  + Topics (R): merging using left join, right join, inner join, regressions with the `fixest` package, `modelsummary` and `kableExtra` for presentation purposes.
+
+* **Week 9: Git/Github (optional)**
+  + This topic will be presented based on student interest.
+  + Check-in: issues with projects? Dedicated feedback to each team/progress reports. 
+
+* **Week 10: Presentations + Reception**
