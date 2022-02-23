@@ -1,0 +1,22 @@
+---
+title: "UCSB Data Hack 2022"
+subtitle: Syllabus
+author: "Camilo Abbate and Michael Topper"
+date  : Fall 2021
+output: 
+  pdf_document:
+fontsize: 12pt
+header-includes:
+  - \usepackage{fancyhdr}
+  - \pagestyle{fancy}
+  - \fancypagestyle{plain}{\pagestyle{fancy}}
+  - \fancyhead[LE, LO]{Data Hack - Spring 2022}
+  - \fancyfoot[LE,LO]{Copyright Michael Topper and Camilo Abbate 2022}
+  - \newcommand{\magenta}[1]{\textcolor{magenta}{#1}}
+  - \usepackage{xcolor}
+urlcolor: blue
+editor_options: 
+  chunk_output_type: console
+---
+
+To make effective policy, it is important to understand how  
