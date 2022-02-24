@@ -21,6 +21,21 @@ editor_options:
 
 To make effective policy, it is important to understand how  
 
+# Learning Objectives
+
+Completion of the course will result in a strong background in the R programming language for uses such as cleaning, analysis, presentation, and data collection methods. In particular, students should understand and be comfortable with the flow of research: starting with a question, finding/collecting data, performing analysis, presenting results, and documenting their work. No prior R experience is expected.
+
+# Course Structure
+
+Class will be held once a week on Friday's from 2:00-4:00pm in NH BLANK. Class sessions will consist of lectures, in-class group activities to reinforce learning, and Q&A. 
+
+## Homework 
+
+Homework assignments will be completely optional. However, it is recommended that you complete the homework assignments for particular skills that you want to become more fluent in. For example, if you find webscraping particularly useful/interesting, it would be best to complete the homework assignment. Homework assignments will not be graded, although solutions will (likely) be provided. 
+
+# Final Presentation
+
+The main objective of this course is to provide evidence for 
 
 # Schedule
 
