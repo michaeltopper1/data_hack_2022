@@ -2,7 +2,7 @@
 title: "UCSB Data Hack 2022"
 subtitle: Syllabus
 author: "Camilo Abbate and Michael Topper"
-date  : Fall 2021
+date  : Spring 2022
 output: 
   pdf_document:
 fontsize: 12pt
@@ -11,7 +11,7 @@ header-includes:
   - \pagestyle{fancy}
   - \fancypagestyle{plain}{\pagestyle{fancy}}
   - \fancyhead[LE, LO]{Data Hack - Spring 2022}
-  - \fancyfoot[LE,LO]{Copyright Michael Topper and Camilo Abbate 2022}
+  - \fancyfoot[LE,LO]{}
   - \newcommand{\magenta}[1]{\textcolor{magenta}{#1}}
   - \usepackage{xcolor}
 urlcolor: blue
@@ -19,27 +19,35 @@ editor_options:
   chunk_output_type: console
 ---
 
-To make effective policy, it is important to understand how  
+Effective policy is backed by data. This course will focus on developing the tools necessary to complete a research project which will result in a final presentation where students will convince a panel of professors/industry leaders why policy makers should focus on a particular issue. 
 
-# Learning Objectives
+Students will be *randomized* into small groups (3-5) at the beginning of the quarter. Each group will be responsible for one final presentation at the end of the quarter which will provide evidence for the following question: what issue should be prioritized by California's policy makers and why? This issue can be social, environmental, or political, but it is necessary that the issue's importance be grounded by data. Hence, while it is important to choose a topic of interest, it is also important to choose a topic of feasibility. As an example, rising crime rates may be a topic of particular concern. Data is readily available through police departments and Open Data Portals provided by major cities. Using this data your team would work together on cleaning/analyzing the data to create a presentation that could convince a policy maker to prioritize the rising crime rates. Some questions you may want to answer are: why are crime rates rising? Where are crime rates rising (e.g., urban/suburban/rural)? What is a possible solution? What is the cost/benefit analysis of your solution?
 
-Completion of the course will result in a strong background in the R programming language for uses such as cleaning, analysis, presentation, and data collection methods. In particular, students should understand and be comfortable with the flow of research: starting with a question, finding/collecting data, performing analysis, presenting results, and documenting their work. No prior R experience is expected.
+## Learning Objectives
 
-# Course Structure
+Completion of the course will result in a strong background in the R programming language for uses such as cleaning, analysis, presentation, and data collection methods. No prior R experience is assumed. Moreover, students will learn tools/methods that aid the workflow of research such as file organization/reproducibility, Zotero for literature reviews, and Freedom of Information Acts for data collection. 
 
-Class will be held once a week on Friday's from 2:00-4:00pm in NH BLANK. Class sessions will consist of lectures, in-class group activities to reinforce learning, and Q&A. 
+## Course Structure
 
-## Homework 
+Class will be held once a week on Friday's from 2:00-4:00pm in the North Hall Computer Lab. Class sessions will consist of lectures, in-class group activities, and Q&A. 
 
-Homework assignments will be completely optional. However, it is recommended that you complete the homework assignments for particular skills that you want to become more fluent in. For example, if you find webscraping particularly useful/interesting, it would be best to complete the homework assignment. Homework assignments will not be graded, although solutions will (likely) be provided. 
+### Homework 
 
-# Final Presentation
+Homework assignments will be completely optional. However, it is recommended that you complete the homework assignments for particular skills that you want to become more fluent in. For example, if you find webscraping particularly useful/interesting, it would be optimal to complete the homework assignment. Homework assignments will not be graded, although solutions will (likely) be provided. 
 
-The main objective of this course is to provide evidence for 
+### Grading
 
-# Schedule
+This class is pass or no pass. 
 
-Note that topics can be excluded/extended based on student interest. In particular, if there are topics that are not listed here that students find interesting/want to know more about, please let us know and we can try to accommodate. 
+## Final Presentation
+
+The final presentation will take place during the last class session (Week 10). Each group will have approximately 10-15 minutes to present their topic. Students will be judged based on a rubric created by both Michael and Camilo. A prize will be given to the top performing group. 
+
+
+
+## Schedule
+
+Note that topics can be excluded/extended based on student interest. In particular, if there are topics that are not listed here that students find interesting/want to know more about, please let us know and we can try to accommodate. Also note that after Week 3, we are open to changing the course schedule to accommodate skills needed for data collection. For instance, while Spatial Data is the topic for Week 4, we can easily skip to Webscraping if groups have a desire/need to gather their data using this method. 
 
 * **Week 1: Introduction to R and Piping**
   + Topics (R): Data types (characters/strings/logicals), importing data (excel/csv emphasis), common statistics (mean/sd/var), introduction to piping with mutating variables/summarizing/filtering/renaming.
