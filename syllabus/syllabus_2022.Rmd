@@ -41,8 +41,13 @@ This class is pass or no pass.
 
 ## Final Presentation
 
-The final presentation will take place during the last class session (Week 10). Each group will have approximately 10-15 minutes to present their topic. Students will be judged based on a rubric created by both Michael and Camilo. A prize will be given to the top performing group. 
+The final presentation will take place during the last class session (Week 10). Each group will have approximately 10-15 minutes to present their topic. Students will be judged by a panel of both industry professionals and professors based on a rubric created by both Michael and Camilo. Prizes money will tentatively follow the following structure:
 
+* 1st place: $500
+* 2nd place: $200
+* 3rd place: $100
+
+While the rubric has not yet been created, be assured that presentation flow, clarity, visualizations, motivation, and comprehensiveness of argument are all important aspects of any presentation.
 
 
 ## Schedule
