@@ -1,0 +1,45 @@
+---
+title: "Preliminaries"
+output: pdf_document
+editor_options: 
+  chunk_output_type: console
+linkcolor: blue
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Please complete the steps in this document before our first class. The idea is to have everyone with R and RStudio installed on their computers and ready to work at the very start of lecture.
+
+# Difference between R and RStudio
+
+Importantly, there is a difference between R and RStudio. R is a programming language. Since it is a programming language, you can type in specific syntax and get specific output. On the other hand, RStudio is a software program to interact with the R programming language. In other words, it is a way to type out the R programming language in an environment that is easy to work in. RStudio is known as an IDE (integrated development environment), which simply means you interact with the language within the software. Note that RStudio will not work properly if you do not have the R programming language installed, although you can still use the R programming language without RStudio.
+
+We will cover more about the RStudio interface in lecture, but for now, we want to make sure you just have everything you need installed.
+
+# Installing R
+
+Since R is an open source computer language, it is constantly being updated. As of right now, the most current (and stable) version of R is 4.1.3. We will use this in this class, although if you have an older version of R (e.g. 3.5 or something), this will also suffice. R is constantly getting updates and bug fixes, but unlike professional software such as Microsoft Excel, I would not recommend you always have the newest version. The reasoning for this is that the newest versions often have many bugs that require fixes. You'll start to notice when it makes sense to update your R computer language when the package you use are being created in later versions of R. For example, if the `dplyr` package (a very stable and well-maintained package) is being created in R 4.0.5, it would probbaly be sensible to update to that version to make sure there aren't any inconsistencies. 
+
+Here are the steps to downloading R:
+
+* For Windows users: Go [here](https://cran.r-project.org/bin/windows/base/) and download R version 4.1.3.
+* For Mac users: Go [here](https://cran.r-project.org/bin/macosx/) and download R version 4.1.3. *WARNING*: be sure to download the correct version for your type of MAC. Note that there is R for Intel-based Macs and R for Apple Silicon Macs. If you are unsure which one you have, you can go to "About this Mac" on your computer to find out whether you have an Intel chip or an Apple chip. If you are really unsure, email Michael!
+* Make sure to install R after downloading!
+
+# Installing RStudio
+
+* Go [here](https://www.rstudio.com/products/rstudio/download/) and download the FREE version of RStudio. Note that the free version will suffice for nearly everything you would ever want to do. Nearly all students and academics use the free version. The paid versions contain helpful features for large corporations that want to take advantage of RStudio's servers and other features that you don't need to know about.  
+* Make sure to install RStudio after downloading!
+
+# Test
+
+As a test to see if you have correctly set up your computer, open RStudio. RStudio will automatically detect R on your computer, so you don't need to open R (RStudio will be doing this on the backend). In the CONSOLE, type the following and hit enter:
+
+```{r}
+2 + 2
+```
+You should get that the answer is 4. Congratulations! You just ran your first line of R code!
+
+
