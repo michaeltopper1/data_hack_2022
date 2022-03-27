@@ -29,7 +29,8 @@ word <- ""
 for (i in final_letters){
   word <- paste0(word, i)
 }
-word
+
+
 final_letters
 
 files <- list.files("homework_assignments/homework_6/", pattern = ".xlsx$")
