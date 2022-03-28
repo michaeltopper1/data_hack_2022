@@ -29,7 +29,7 @@ Completion of the course will result in a strong background in the R programming
 
 ## Course Structure
 
-Class will be held once a week on Friday's from 2:00-4:00pm in the North Hall Computer Lab. Class sessions will consist of lectures, in-class group activities, and Q&A. 
+Class will be held once a week on Friday's from 3:00-5:00pm in the North Hall Computer Lab. Class sessions will consist of lectures, in-class group activities, and Q&A. 
 
 ### Homework 
 
