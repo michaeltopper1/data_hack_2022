@@ -1,0 +1,104 @@
+---
+title: "Untitled"
+author: "Camilo Abbate"
+date: "3/29/2022"
+output: beamer_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+
+## Today's outline
+
+\begin{itemize}
+
+\item Importing data
+\begin{itemize}
+     \item Excel/CSV
+     \item RData
+\end{itemize}
+
+\item RProjects
+
+
+\item Data Types
+\begin{itemize}
+     \item Characters
+     \item Strings
+     \item Logicals
+     \end{itemize}
+		
+
+\item Common Statistics
+
+\item Piping (magrittr package)
+
+\item Some coding to start practicing..
+	
+\end{itemize}
+
+
+## Importing Data
+
+`R` works with "libraries" (packages)
+
+\begin{center}
+\includegraphics[width=2.72in]{rpacka.jpeg}
+\end{center}
+
+## Importing Data: 
+
+Before, just in case:
+Clean the enviroment (erasing pre-existing stuff)
+
+```{r, eval=F, echo=T}
+rm(list = ls())
+```
+
+
+## Importing Data
+
+```{r}
+
+#example_data <- read_excel("C:\\Users\\...\\filename.xlsx")
+
+
+
+
+```
+
+
+
+
+
+## R Projects!
+
+Let's create an R Project!
+
+Why?
+
+Extremely convenient for file path management and collaboration!
+
+## Where are we working?
+
+```{r}
+getwd()
+```
+
+## Imagine we need to load some data from
+
+## Slide with R Output
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r pressure}
+plot(pressure)
+```
+
