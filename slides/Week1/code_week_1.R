@@ -36,57 +36,5 @@ wharf_sb <- read.delim("wharf.txt")
 another_wharf <- read.delim("../wharf2.txt")
 
 
-#Rprojects
-#close this file, create the project and open it again
-
-rm(list = ls());
-library(readxl)
-
-data_employment <- read_excel("Week1_data/employment12.xlsx")
-
-data_employment <- data_employment[1:3219,]
-
-
-#class(data_employment)
-typeof(data_employment)
-
-typeof(data_employment$`LAUS code`)
-typeof(data_employment$`State FIPS code`)
-typeof(data_employment$`Labor force`)
-
-#Logical are TRUE/FALSE
-
-4 == 2+2
-a <- 4 == 2+2
-
-typeof(a)
-
-
-#Common Statistics:
-
-mean(data_employment$`Unemployment rate %`)
-sd()
-
-#How to deal with NA's ??
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#close this file, create the project and open the version b of this rscript
 
