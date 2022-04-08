@@ -9,7 +9,7 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE, eval = F)
 ```
 
-For this week we'll be analzying a subset (had to get rid of the embarassing stuff) of my Amazon orer data. The goal of this lecture is to get everyone acclimated to the workflow of R - importing data, piping your way to results, and then asking questions about the data. I'll be utilizing two main packages today: `tidyverse` (which is a collection of many packages) and `lubridate` which is a package dedicated to making working with dates easier. 
+For this week we'll be analyzing a subset (had to get rid of the embarrassing stuff) of my Amazon order data. The goal of this lecture is to get everyone acclimated to the workflow of R - importing data, piping your way to results, and then asking questions about the data. I'll be utilizing two main packages today: `tidyverse` (which is a collection of many packages) and `lubridate` which is a package dedicated to making working with dates easier. 
 
 On the packages note, recall that a package is just a collection of functions. In particular, the functions are solutions to problems that people commonly have. The `tidyverse` on the other hand, is a collection of packages (e.g. a collection of functions) that follow similar syntax. For instance, all tidyverse function use snake_case as their names, and I believe most of the functions are backed with C++ for speed. I recommend you all keep a tidyverse-approach for the course - it was created to make data wrangling and analysis MUCH easier and standardized. 
 Now let's load the packages that we want:
