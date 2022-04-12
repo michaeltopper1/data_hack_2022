@@ -46,8 +46,15 @@ spotify %>%
   head(20) %>% 
   mutate(artist_name = fct_reorder(artist_name, n)) %>% 
   ggplot(aes(x = n, y = artist_name)) +
-  geom_col() +
+  geom_col(fill = "green", alpha = 0.5) +
   geom_text(aes(label = n), hjust = -0.1) +
-  labs(x = "Number of Streams", y = " ", title = "Top Artists Streamed Past Year")
+  labs(x = "Number of Streams", y = " ", title = "Top Artists Streamed Past Year",
+       subtitle = "Total Plays: 172") +
+  ggthemes::theme_tufte() +
+  theme(plot.background = element_rect(fill = "black"),
+        axis.text.x = element_text(color = "white"),
+        axis.text.y = element_text(color = "white"),
+        plot.title = element_text(color = "White"),
+        plot.subtitle = element_text(color = "White"))
 
 
