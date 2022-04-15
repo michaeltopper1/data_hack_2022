@@ -19,10 +19,7 @@ titanic %>%
   geom_col() +
   coord_flip()
 
-titanic %>% 
-  # mutate(survived = as.factor(survived)) %>% 
-  group_by(sex, pclass) %>% 
-  summarize(proportion_survived = sum(survived, na.rm = T))
+
 spotify <- spotify %>% 
   mutate(seconds_played = ms_played/1000,
          minutes_played = seconds_played/60) %>% 

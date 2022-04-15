@@ -3,10 +3,11 @@ title: 'Lecture 3: GGPLOT2'
 output: pdf_document
 editor_options: 
   chunk_output_type: console
+linkcolor: blue
 ---
 
 ```{r setup, include=FALSE, message = F, warning = F}
-knitr::opts_chunk$set(echo = T, eval = T)
+knitr::opts_chunk$set(echo = T, eval = T, message = F, warning = F)
 knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
 
 ```
@@ -22,6 +23,9 @@ library(titanic)
 
 theme_set(theme_minimal())
 spotify <- read_csv("homework_assignments/homework_2/streaming_data.csv")
+titanic <- titanic_train %>% 
+  as_tibble() %>% 
+  janitor::clean_names()
 ```
 
 Let's clean the data:
@@ -32,7 +36,8 @@ spotify <- spotify %>%
          minutes_played = seconds_played/60) %>% 
   mutate(end_time= with_tz(end_time, tz = "America/Los_Angeles")) %>% 
   mutate(time_played = hms::as_hms(end_time), .before = 1) %>% 
-  mutate(hour_played = hour(time_played))
+  mutate(hour_played = hour(time_played)) %>% 
+  mutate(day = wday(end_time, label = T ))
 ```
 
 Now let's make some graphs.
@@ -47,7 +52,7 @@ spotify %>%
   mutate(month = month(end_time)) %>% 
   ggplot(aes(hour_played)) +
   geom_histogram() +
-  facet_wrap(~month) +
+  facet_wrap(~day) +
   labs(y = "Count", x = "Hour of Day Played")
 ```
 
@@ -63,7 +68,21 @@ spotify %>%
   labs(y = "Count", x = "Hour of Day Played")
 ```
 
+
 ### Time Plot
+
+```{r}
+spotify %>% 
+  filter(artist_name == "Kanye West") %>% 
+  filter(day == "Fri" | day == "Sat" | day == "Sun") %>% 
+  mutate(month = month(end_time), year = year(end_time)) %>%
+  mutate(month_date = ymd(paste0(year, "-", month, "-1"))) %>% 
+  group_by(day, month_date) %>% 
+  summarize(stream_count_day = n()) %>% 
+  ggplot(aes(month_date, stream_count_day, color = day)) +
+  geom_line()
+```
+
 
 ```{r}
 spotify %>% 
@@ -133,4 +152,50 @@ spotify %>%
 1. Make a graph that scatters ticket fare on age and then do a color argument.
 2. Do a fill argument
 
+\newpage
+
+## Assignment:
+
+Replicate Figure \ref{boxplot}
+
+```{r, echo = F}
+boxplot <- titanic %>% 
+  mutate(survived = ifelse(survived == 1, "Survived", "Died")) %>% 
+  mutate(sex = ifelse(sex == "female", "Female", "Male")) %>% 
+  mutate(pclass = as.factor(pclass)) %>% 
+  ggplot(aes(pclass, age, color = sex)) +
+  geom_boxplot() +
+  facet_wrap(~survived) +
+  labs(x = "Class", y = "Age", title = "Survived and Died by Class",
+       color = " ") +
+  theme(legend.position = "bottom")
+```
+
+```{r, echo = F, fig.cap= "\\label{boxplot}Boxplot of Titanic Survivors"}
+boxplot
+```
+
+Hints: 
+
+1. Start with a normal boxplot for pclass and age
+2. Use the aes() argument and facet wraps.
+3. mutate your variables to clean up the graph.
+
+Assignment 2: Replicate Figure \ref{col_graph}.
+```{r, echo = F}
+col_graph <- titanic %>% 
+  mutate(survived = ifelse(survived == 1, "Survived", "Died")) %>% 
+  mutate(sex = ifelse(sex == "female", "Female", "Male")) %>% 
+  group_by(pclass, survived) %>% 
+  count(sex, sort = T) %>% 
+  ggplot(aes(pclass, n, fill = sex)) +
+  geom_col() +
+  facet_wrap(~survived) +
+  labs(x = "Class", y = "Count", fill = " ") +
+  theme(legend.position = "bottom")
+```
+
+```{r, echo  = F, fig.cap="\\label{col_graph} Graph of Classes and Number of Survivers by Sex"}
+col_graph
+```
 
