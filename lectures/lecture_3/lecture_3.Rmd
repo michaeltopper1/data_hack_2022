@@ -1,35 +1,47 @@
+---
+title: 'Lecture 3: GGPLOT2'
+output: pdf_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE, message = F, warning = F}
+knitr::opts_chunk$set(echo = T, eval = T)
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+
+```
+
+# GGplot2
+
+## Spotify data:
+
+```{r, echo = T}
 library(tidyverse)
 library(lubridate)
 library(titanic)
 
 theme_set(theme_minimal())
 spotify <- read_csv("homework_assignments/homework_2/streaming_data.csv")
-titanic <- titanic_train %>% 
-  as_tibble() %>% 
-  janitor::clean_names()
+```
 
+Let's clean the data:
 
-## who surived?
-titanic %>% 
-  group_by(pclass, sex) %>% 
-  summarize(survived = sum(survived,na.rm = T)) %>% 
-  ungroup() %>% 
-  mutate(pclass = fct_reorder(as.factor(pclass), survived)) %>% 
-  ggplot(aes(x = pclass, y = survived, fill = as.factor(sex))) +
-  geom_col() +
-  coord_flip()
-
-titanic %>% 
-  # mutate(survived = as.factor(survived)) %>% 
-  group_by(sex, pclass) %>% 
-  summarize(proportion_survived = sum(survived, na.rm = T))
+```{r}
 spotify <- spotify %>% 
   mutate(seconds_played = ms_played/1000,
          minutes_played = seconds_played/60) %>% 
   mutate(end_time= with_tz(end_time, tz = "America/Los_Angeles")) %>% 
   mutate(time_played = hms::as_hms(end_time), .before = 1) %>% 
   mutate(hour_played = hour(time_played))
+```
 
+Now let's make some graphs.
+
+### Density/Histogram
+
+This first graph will show the power of ggplot2 and switching between layers
+
+```{r, eval = T}
 spotify %>% 
   filter(seconds_played > 5) %>% 
   mutate(month = month(end_time)) %>% 
@@ -37,11 +49,11 @@ spotify %>%
   geom_histogram() +
   facet_wrap(~month) +
   labs(y = "Count", x = "Hour of Day Played")
+```
 
+Start with just doing the hour played histogram, then add facet, then filter, then labs, then change to a density, then add a fill:
 
-  
-
-## make a density graph similar to what we did before
+```{r, eval = T}
 spotify %>% 
   filter(seconds_played > 5) %>% 
   mutate(month = month(end_time, label = T)) %>% 
@@ -49,9 +61,11 @@ spotify %>%
   geom_density(fill = "blue", alpha = 0.5) +
   facet_wrap(~month) +
   labs(y = "Count", x = "Hour of Day Played")
+```
 
+### Time Plot
 
-## put on where donda was released.
+```{r}
 spotify %>% 
   filter(artist_name == "Kanye West") %>% 
   mutate(month = month(end_time), year = year(end_time)) %>%
@@ -66,6 +80,15 @@ spotify %>%
            vjust = 1) +
   labs(x = " ", y = "Monthly Play Count", title = "Kanye West Streams in Past Year")
 
+```
+
+Can put multiple lines on the same graph.
+
+Favorite artist streams. This plot is good for the following reasons:
+1. You get to understand the color argument.
+2. You get to understand more how the labs argument works with color.
+3. You can understand why this is a bad graph.
+```{r}
 spotify %>% 
   filter(artist_name == "Kanye West" |
            artist_name == "Billie Eilish" |
@@ -79,9 +102,15 @@ spotify %>%
   summarize(streams_per_day = n()) %>%
   arrange(month_date) %>% 
   ggplot(aes(month_date, streams_per_day, color = artist_name)) +
-  geom_path() 
+  geom_path() +
+  labs(title = "Streams Per-Month of Favorite Artists", x = " ", y = "Streams")
+```
 
+Change this to a facet wrap.
 
+### Stacking Bar Plot
+
+```{r}
 spotify %>% 
   count(artist_name, sort = T) %>% 
   head(20) %>% 
@@ -97,7 +126,11 @@ spotify %>%
         axis.text.y = element_text(color = "white"),
         plot.title = element_text(color = "White"),
         plot.subtitle = element_text(color = "White"))
+```
 
+# Titanic Data
 
-  
+1. Make a graph that scatters ticket fare on age and then do a color argument.
+2. Do a fill argument
+
 
