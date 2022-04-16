@@ -10,13 +10,6 @@ library(jsonlite)
 library(lubridate)
 library(hms)
 
-## getting streaming data
-streaming <- read_json("homework_assignments/homework_2/StreamingHistory0.json")
-streaming <- tibble(streaming)
-## final
-streaming <- streaming %>% 
-  unnest_wider(streaming)
-
 ## cleaning names 
 streaming <- streaming %>% 
   janitor::clean_names()

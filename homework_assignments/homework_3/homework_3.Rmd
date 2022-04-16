@@ -9,18 +9,27 @@ linkcolor: blue
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = F, warning = F, message = F)
 knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+knitr::opts_chunk$set(tidy.opts = list(width.cutoff = 60), tidy = TRUE)
 library(tidyverse)
 library(lubridate)
+library(formatR)
 source(paste0(here::here("homework_assignments/homework_3/homework_3_solutions.R")))
 ```
 
 This homework assignment is meant to get you comfortable with ggplot2. We will be using multiple data sets from the TidyTuesday website for convenience. Here is the order of data we will be using, along with the respective links:
 
-1. [Registered Nurses Data](https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-10-05/readme.md). Read in the data manually as shown in class.
+1. [Registered Nurses Data](https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-10-05/readme.md). Read in the data manually as shown on the Github page. Note that below is an example of the code you'll copy, but the link is too long to fit onto the page. 
 
-2. [Netflix Titles](https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-04-20/readme.md). Read in the data manually as shown in class.
+```{r, echo = T, eval = F}
+## this reads in the data
+nurses <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-10-05/nurses.csv')
 
-3. [TV's Golden Age](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-08). Read in the data manually as shown in class.
+```
+
+
+2. [Netflix Titles](https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-04-20/readme.md). Read in the data manually as shown on the Github page.
+
+3. [TV's Golden Age](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-08). Read in the data manually as shown on the Github page.
 
 # Assignment
 
