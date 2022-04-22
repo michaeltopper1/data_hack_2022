@@ -6,7 +6,7 @@ editor_options:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, message = F, warning = F)
 knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
 ```
 
@@ -151,7 +151,7 @@ str_extract_all(practice_1, "\\s.{1,}.edu$|\\s.{1,}.com$")
 
 In practice we're going to be using the `tidyr::extract` and `tidyr::separate` functions. These will perform regex extracting and splitting on a dataframe rather than just small vector.
 
-```{r}
+```{r, eval = F}
 horror_movies <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-10-22/horror_movies.csv")
 
 horror_movies %>% 
@@ -165,11 +165,11 @@ horror_movies %>%
 Now let's focus on scraping a PDF. First off, we're going to use the function: `pdftools::pdf_text`. This function just extracts all the text from a pdf.
 
 
-```{r}
+```{r, eval = F}
 crime_log <- pdf_text(here::here(paste0("lectures/lecture_4/crime_log.pdf")))
 ```
 
-```{r}
+```{r, eval = F}
 crime_log
 ```
 
@@ -184,14 +184,14 @@ One of the tricks to getting a pdf into the correct format is to break everythin
 ## Brief Refresher
 
 Recall that there are ways to index things in R:
-```{r}
+```{r, eval = F}
 x2[1]
 x2[3]
 ```
 
 There are also lists:
 
-```{r}
+```{r, eval = F}
 list1 <- list(x, x2)
 list1[1] # notice the difference
 list1[[1]] # between both of these
@@ -201,7 +201,7 @@ Lists are a way to keep dimensionality down. It is important to know how to inde
 ## Scraping
 
 We'll always start off scraping by splitting the pdf:
-```{r}
+```{r, eval = F}
 pdf_trimmed <- crime_log %>% 
   str_split("\n") %>% ## splits the pdf by new-lines (\n)
   unlist() %>% ## unlists the list that was creating by splitting
@@ -209,13 +209,13 @@ pdf_trimmed <- crime_log %>%
   str_to_lower()
 ```
 
-```{r}
+```{r, eval = F}
 incident_index <- pdf_trimmed %>% 
   str_detect("^incident") %>% 
   which()
 ```
 
-```{r}
+```{r, eval = F}
 pdf_trimmed[incident_index] %>% 
   as_tibble() %>% 
   extract(value, into = "incident", regex = ".{1,}:(.{1,})report.{1,}") %>% 
