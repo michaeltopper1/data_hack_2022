@@ -178,5 +178,48 @@ One of the tricks to getting a pdf into the correct format is to break everythin
 * str_split() - split into a vector by some regex.
 * str_trim() - trim whitespace
 * unlist() - will make a list into a vector
+* which() - gives the index of a TRUE statement
 * as_tibble() - will turn a vector into a dataframe (tibble)
 
+## Brief Refresher
+
+Recall that there are ways to index things in R:
+```{r}
+x2[1]
+x2[3]
+```
+
+There are also lists:
+
+```{r}
+list1 <- list(x, x2)
+list1[1] # notice the difference
+list1[[1]] # between both of these
+```
+
+Lists are a way to keep dimensionality down. It is important to know how to index lists. There is an important distinction between the double bracket `[[` which gives you the element inside the list, while `[` gives you the element *of* the list. `[` can extract multiple indices, while `[[` can only extract one exact one. 
+## Scraping
+
+We'll always start off scraping by splitting the pdf:
+```{r}
+pdf_trimmed <- crime_log %>% 
+  str_split("\n") %>% ## splits the pdf by new-lines (\n)
+  unlist() %>% ## unlists the list that was creating by splitting
+  str_trim() %>% 
+  str_to_lower()
+```
+
+```{r}
+incident_index <- pdf_trimmed %>% 
+  str_detect("^incident") %>% 
+  which()
+```
+
+```{r}
+pdf_trimmed[incident_index] %>% 
+  as_tibble() %>% 
+  extract(value, into = "incident", regex = ".{1,}:(.{1,})report.{1,}") %>% 
+  mutate(incident = str_trim(incident))
+```
+
+Continue on...
