@@ -32,7 +32,7 @@ page_1 <- page_1 %>%
 ## example of scraping information on first link:
 ## broker column names
 broker_cols <- c("brokerage", "info", "address", "email", "phone", "website")
-read_html("https://brokers.interexo.com/united-states_new-york/company/bridge-brokers/aj-caro-8e1") %>% 
+broker_cols_1 <- read_html("https://brokers.interexo.com/united-states_new-york/company/bridge-brokers/aj-caro-8e1") %>% 
   html_elements(".col-auto") %>% 
   html_text2() %>% 
   str_split("\n") %>% 
@@ -41,3 +41,29 @@ read_html("https://brokers.interexo.com/united-states_new-york/company/bridge-br
   pivot_wider(names_from = value, values_from= value) %>% 
   set_names(broker_cols)
   
+
+
+## loop through the links
+
+links <- page_1 %>% 
+  select(full_link) %>% 
+  unlist() 
+links <- as.list(links)
+
+broker_info <- map_df(links, ~read_html(.) %>% 
+         html_elements(".col-auto") %>% 
+         html_text2() %>% 
+         str_split("\n") %>% 
+         unlist() %>% 
+         as_tibble() %>% 
+         pivot_wider(names_from = value, values_from= value) %>% 
+         set_names(broker_cols))
+
+read_html(links[[2]]) %>% 
+  html_elements(".pt-3") %>% 
+  html_text2() %>% 
+  str_split("\n") %>% 
+  unlist() %>% 
+  as_tibble() %>% 
+  pivot_wider(names_from = value, values_from= value) %>% 
+  set_names(broker_cols)
