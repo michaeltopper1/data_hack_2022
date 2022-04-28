@@ -14,7 +14,7 @@ library(mapview)
 #Homeless Assistance Award Report
 #getwd()
 
-coc_awards <- pdf_text("camilos_parts/Week 5/FY2021_NY_Press_Report.pdf")
+coc_awards <- pdf_text("lectures/week5/FY2021_NY_Press_Report.pdf")
 
 #Just like Michael did last class:
 
@@ -127,7 +127,7 @@ plot_usmap("counties", fill = "blue", alpha = 0.25,
 
 
 #Suppose we manage to use the data from the pdf and distribute "roughly" into the counties:
-ny_hm <- read_csv('camilos_parts/Week 5/ny_hmfm.csv')
+ny_hm <- read_csv('lectures/week5/ny_hmfm.csv')
 
 usmap::plot_usmap(data=ny_hm,include="NY", values = "overall_homeless", color = "grey") #+
   # ggplot2::scale_fill_gradient(low="green",high="darkgreen") + labs(title="Hi")
@@ -146,13 +146,64 @@ usmap::plot_usmap(data=ny_hm,include="NY", values = "dollar_p_hm", color = "grey
  labs(title="Federal dollar per homeless individual - NY State 2020")
 
 
-#Now SF package!
+#Now SF package!?
 
-install.packages("mapview")
+nyc_arrests = read_csv('lectures/week5/nyc_arrests.csv')
+
+ttotal_crime <- total_crime %>%
+  mutate(date = lubridate::ymd(paste0(year, "-", month, "-", "1")))
+
+total_crime_by_age = nyc_arrests %>% group_by(year, month,age_group) %>% count()
+
+total_crime_by_age <- total_crime_by_age %>%
+  mutate(date = lubridate::ymd(paste0(year, "-", month, "-", "1")))
+
+
+total_crime_by_age = total_crime_by_age %>% 
+  rename("tot_crime" = "n")
+
+ggplot(total_crime_by_age,aes(x=date, y = tot_crime, group = age_group, colour = age_group)) +
+  geom_line() +
+  xlab("Date") +
+  ylab("Total crime per month") +
+  labs(title = "Crime in NYC by age group")
+
+library(ggmap)
+bbox<- c(left = -74.35, bottom = 40.498, right = -73.687, top = 40.90)
+nyc <-get_stamenmap(bbox, zoom = 11, maptype = "terrain")
+
+ggmap(nyc) +
+  geom_point(data = nyc_arrests %>% filter(ofns_desc=='ROBBERY' & year==2010),aes(longitude,latitude),
+             alpha = 0.7) +
+  ggthemes::theme_map() +
+  labs(title = "Robberies in NYC")
+
+
+ggmap(nyc) +
+  geom_point(data = nyc_arrests %>% filter(ofns_desc=='ROBBERY'),
+             aes(longitude,latitude,group = perp_race, colour = perp_race), alpha = 0.7) +
+  ggthemes::theme_map() +
+  theme(legend.position = c(0.01, 0.5)) +
+  labs(color = "Perpetrator race",
+       title = "Robberies by race in NYC")
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 mapview(breweries)
 
-mapview(breweries)
+
+
 
 
 

@@ -12,3 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 In this week, we are going to continue using pdftools but at the same time, we are going to introduce the package sf and usmaps.
 
+```{r}
+
+```
+
