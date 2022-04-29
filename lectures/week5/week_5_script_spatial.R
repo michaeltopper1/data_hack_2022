@@ -79,24 +79,26 @@ coc_totals <- coc_awards[index] %>% as_tibble
 
 coc_totals <- coc_totals[-25,]
 
-coc_NY_state <- tibble(coc_names,coc_totals)
+coc_ny_state <- tibble(coc_names,coc_totals)
 
 #remove:
 
 rm(coc_names,coc_totals)
 
-coc_NY_state <- coc_NY_state %>%
-    tidyr::extract(value, into = "total_FED_money", ".{1,}\\$(.{1,}).{1,}", remove = F)
+coc_ny_state <- coc_ny_state %>%
+    tidyr::extract(value, into = "total_fed_money", ".{1,}\\$(.{1,}).{1,}", remove = F)
 
-coc_NY_state <- coc_NY_state %>%
-  tidyr::extract(value, into = "total_FED_money", ".{1,}\\$(.{1,}).{1,}", remove = T)
+coc_ny_state <- coc_ny_state %>%
+  tidyr::extract(value, into = "total_fed_money", ".{1,}\\$(.{1,}).{1,}", remove = T)
 
 #remove the commas:
-str_replace_all(coc_NY_state$total_FED_money,",","")
+coc_ny_state %>% mutate(total_fed_money = str_replace_all(total_fed_money,",",""))
 
-coc_NY_state$total_FED_money <- as.numeric(str_replace_all(coc_NY_state$total_FED_money,",",""))
+coc_ny_state <- coc_ny_state %>% mutate(total_fed_money = str_replace_all(total_fed_money,",",""))
 
-typeof(coc_NY_state$total_FED_money)
+coc_ny_state <- coc_ny_state %>% mutate(total_fed_money = as.numeric(total_fed_money))
+
+typeof(coc_ny_state$total_fed_money)
 
 #Now we begin the good stuff:
 
@@ -166,6 +168,8 @@ usmap::plot_usmap(data=ny_hm,include="NY", values = "fed_money", color = "grey")
 
 ny_hm <- ny_hm %>% mutate(dollar_p_hm = fed_money/overall_homeless)
 
+#hist(ny_hm$dollar_p_hm)
+
 usmap::plot_usmap(data=ny_hm,include="NY", values = "dollar_p_hm", color = "grey") +
  labs(title="Federal dollar per homeless - NY State 2020")
 
@@ -178,6 +182,7 @@ usmap::plot_usmap(data=ny_hm,include="NY", values = "dollar_p_hm", color = "grey
 #North Carolina data
 demo(nc, ask = FALSE, echo = FALSE)
 nc <- nc %>% janitor::clean_names()
+View(nc)
 class(nc)
 plot(nc)
 plot(nc["area"])
@@ -193,10 +198,12 @@ load("lectures/week5/ny_spatial.RData")
 class(ny_for_maps)
 
 
-View(ny_for_maps)
-View(ny_for_maps[,1:10])   # TAKES 3 HOURS TO OPEN, geometry doesn't disappear
+#View(ny_for_maps)
+#View(ny_for_maps[,1:10])   # TAKES 3 HOURS TO OPEN, geometry doesn't disappear
 
-ny_no_geometry <- select(as.data.frame(ny_for_maps), -geometry)
+# ny_no_geometry <- select(as.data.frame(ny_for_maps), -geometry)  AVOID THIS, DO THE NEXT:
+
+ny_no_geometry <- ny_for_maps %>% st_set_geometry(NULL)
 
 View(ny_no_geometry)
 
@@ -209,7 +216,7 @@ usmap::plot_usmap(data=ny_hm,include="NY", values = "fed_money", color = "grey")
 #or better, explain left join and stuff, and everything we will do:
 #start with:
 
-coc_NY_state$coc_name
+coc_ny_state$coc_name
 
 ny_for_maps$cocnum
 
@@ -225,35 +232,75 @@ ny_for_maps$cocnum
 #worst: coc_NY_state$coc_number <- str_sub(coc_NY_state$coc_name,1,6)
 #better:
 
-coc_NY_state <- coc_NY_state %>% mutate(cocnum = str_sub(coc_name,1,6))
+coc_ny_state <- coc_ny_state %>% mutate(cocnum = str_sub(coc_name,1,6))
 
 ny_for_maps$cocnum
 
 ny_for_maps$cocnum <- tolower(ny_for_maps$cocnum)
 
-colnames(coc_NY_state)
+colnames(coc_ny_state)
 
 colnames(ny_for_maps)
 
 #jumping waaay ahead of ourselves
-new_york_state <- left_join(ny_for_maps,coc_NY_state,by="cocnum")
+new_york_state <- left_join(ny_for_maps,coc_ny_state,by="cocnum")
 
-plot(new_york_state["total_FED_money"]) #missing data
+class(new_york_state)
+
+attr(new_york_state, "sf_column")
+
+#print(new_york_state[9:15], n = 3)
+new_york_state[49:53,] %>% st_geometry() %>% plot
+
+new_york_state[49:53,"coc_area"] %>% plot
+
+#not working for some reason
+#new_york_state %>% filter(cocnum=="NY-600") %>% st_geometry() %>% plot()
+
+
+plot(st_geometry(new_york_state[4,]))
+
+#lets plot the 5 boroughs:
+
+
+
+plot(st_geometry(new_york_state))
+
+plot(new_york_state["total_fed_money"]) #missing data
 
 #The City of New York is made up of five boroughs. Each borough is a county of New York State.
 
-plot(st_geometry(new_york_state), col = sf.colors(12, categorical = TRUE), border = 'grey', 
-     axes = TRUE)
+plot(st_geometry(new_york_state))
 
-options(sf_max.plot=1)
-plot(new_york_state)
 plot(new_york_state["area"])
 
+plot(new_york_state["coc_area"])
 
-#next one is SUPER optional
+
+
+
+
+############### OUT!!!!
+
+
+new_york_state %>% ggplot() + geom_sf()
 
 ggplot() + 
   geom_sf(data = new_york_state, aes(fill = "area"))
+
+#let's put some points over there
+
+#Statue of liberty: latitude 40.689247, and the longitude is -74.044502.
+
+ggplot(data=new_york_state) + geom_sf()
+
+class(new_york_state)
+
+ggplot() +
+  geom_sf(data = new_york_state) +
+  geom_point(data = liberty_statue, aes(x = longitude, y = latitude), size = 4, 
+             shape = 23, fill = "darkred")  
+  #coord_sf(xlim = c(-80, -58), ylim = c(50, 32), expand = TRUE)
 
 
 # OTHER STUFF, SUPER SUPPEEER OPTIONAL AND MAYBE!!!
@@ -298,4 +345,9 @@ ggmap(nyc) +
   theme(legend.position = c(0.01, 0.5)) +
   labs(color = "Perpetrator race",
        title = "Robberies by race in NYC")
+
+
+#filepath <- file.path("lectures/week5")
+#file = file.path(filepath,"coc_NY_state.RData")
+#save(coc_NY_state, file=file)
 

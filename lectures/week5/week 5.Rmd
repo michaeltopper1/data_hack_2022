@@ -32,7 +32,7 @@ getwd()
 ny_hm <- read_csv('ny_hmfm.csv')
 ```
 
-# More of PDF Extracting and spatial Data
+# More of PDF Extracting and Spatial Data
 
 In this week, we are going to wrap up the use of `pdftools` and start with spatial data.
 You'll need to load the following packages (install them if necessary):
@@ -84,7 +84,30 @@ usmap::plot_usmap(data=ny_hm[-c(3,24,30,31,41,43,52,60),],include="NY", values =
 
 \newpage
 
-3. 
+### A little bit of work with sf:
+
+3. Explore the `sf dataframe` called `new_york_state` (or `ny_no_geometry`to open it faster). Consider any 2 Coc localities and plot their areas.
+
+```{r,include=F}
+#just including some:
+load("ny_spatial.RData")
+load("coc_NY_state.RData")
+coc_NY_state <- coc_NY_state %>% mutate(cocnum = str_sub(coc_name,1,6))
+ny_for_maps$cocnum <- tolower(ny_for_maps$cocnum)
+#jumping waaay ahead of ourselves
+
+new_york_state <- left_join(ny_for_maps,coc_NY_state,by="cocnum")
+
+```
+
+```{r, echo=F,fig.height = 3, fig.width = 3,fig.align = "center",fig.cap = "Example using NY-522 and NY-523 CoC"}
+new_york_state[42:48,"coc_area"] %>% plot
+```
+
+
+4. Do the previous graph but with a new variable that represents federal money per homeless person.
+
+
  
 
 
