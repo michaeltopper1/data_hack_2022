@@ -1,8 +1,20 @@
 ---
-title: "Week 5"
+title: "Week 5 Exercises"
 author: "Data Hack 2022"
-date: "4/18/2022"
-output: pdf_document
+date: "4/28/2022"
+output: 
+  pdf_document:
+header-includes:
+  - \usepackage{xcolor}
+  - \usepackage{dcolumn}
+  - \newcommand{\magenta}[1]{\textcolor{magenta}{#1}}
+  - \usepackage{fancyhdr}
+  - \pagestyle{fancy}
+  - \fancypagestyle{plain}{\pagestyle{fancy}}
+  - \fancyhead[LE, LO]{General R stuff}
+  - \usepackage{caption}
+  - \usepackage{framed}
+
 ---
 
 ```{r setup, include=FALSE}
@@ -10,5 +22,72 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-In this week, we are going to continue using pdftools but at the same time, we are going to introduce the package sf and usmaps.
+```{r, include=FALSE}
+library(usmap)
+library(sf)
+library(pdftools)
+library(tidyverse)
+library(mapview)
+getwd()
+ny_hm <- read_csv('ny_hmfm.csv')
+```
+
+# More of PDF Extracting and spatial Data
+
+In this week, we are going to wrap up the use of `pdftools` and start with spatial data.
+You'll need to load the following packages (install them if necessary):
+
+`usmap` \hspace{.5cm} `sf` \hspace{.5cm} `mapview`
+
+
+## Some exercises to practice:
+
+1. Consider the next map:
+
+```{r}
+plot_usmap("counties", fill = "yellow", alpha = 0.25,
+           include = c(.south_region))
+```
+
+Plot a similar map, where counties are in lightblue and exclude Florida.
+
+
+2. Use the file `ny_hmfm.csv` and consider the following graph:
+
+```{r}
+usmap::plot_usmap(data=ny_hm,include="NY", values = "overall_homeless")
+```
+
+Exclude the values of overall_homeless for New York City (counties: Bronx, Kings, New York, Queens and Richmond)
+You should get a map that looks like this:
+
+```{r,echo=F,fig.height = 3.4, fig.width = 3.4,fig.align = "center"}
+#exclude nyc
+usmap::plot_usmap(data=ny_hm[-c(3,24,31,41,43),],include="NY", values = "overall_homeless")
+```
+
+Now get rid off the counties: Nassau, Suffolk and Westchester. You should get this map:
+
+```{r,echo=F}
+#exclude nyc and Nassau(30), Suffolk(52) and Westchester(60)
+usmap::plot_usmap(data=ny_hm[-c(3,24,30,31,41,43,52,60),],include="NY", values = "overall_homeless")
+
+```
+
+Finally, google how to get rid off the legend on the bottom left that says: "map_df[,values]"
+(If you prefer, try to locate the legend at the top right of the graph)
+
+```{r,echo=F,fig.height = 3, fig.width = 3,fig.align = "center"}
+#exclude nyc and Nassau(30), Suffolk(52) and Westchester(60)
+usmap::plot_usmap(data=ny_hm[-c(3,24,30,31,41,43,52,60),],include="NY", values = "overall_homeless") + theme(legend.position='none') 
+```
+
+\newpage
+
+3. 
+ 
+
+
+
+
 
