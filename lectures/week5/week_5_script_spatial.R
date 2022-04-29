@@ -300,7 +300,7 @@ ggplot() +
   geom_sf(data = new_york_state) +
   geom_point(data = liberty_statue, aes(x = longitude, y = latitude), size = 4, 
              shape = 23, fill = "darkred")  
-  #coord_sf(xlim = c(-80, -58), ylim = c(50, 32), expand = TRUE)
+#coord_sf(xlim = c(-80, -58), ylim = c(50, 32), expand = TRUE)
 
 
 # OTHER STUFF, SUPER SUPPEEER OPTIONAL AND MAYBE!!!
