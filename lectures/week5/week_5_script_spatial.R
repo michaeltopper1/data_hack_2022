@@ -92,8 +92,9 @@ coc_NY_state <- coc_NY_state %>%
   tidyr::extract(value, into = "total_FED_money", ".{1,}\\$(.{1,}).{1,}", remove = T)
 
 #remove the commas:
+str_replace_all(coc_NY_state$total_FED_money,",","")
 
-coc_NY_state$total_FED_money <- as.numeric(gsub(',', '', coc_NY_state$total_FED_money))
+coc_NY_state$total_FED_money <- as.numeric(str_replace_all(coc_NY_state$total_FED_money,",",""))
 
 typeof(coc_NY_state$total_FED_money)
 
