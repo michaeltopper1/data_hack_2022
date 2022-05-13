@@ -1,0 +1,14 @@
+---
+title: "Week 7"
+author: "Data Hack 2022"
+date: "05/13/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Exercises 
+
