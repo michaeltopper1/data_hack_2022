@@ -10,5 +10,13 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-# Exercises 
+# Check out the
+
+# Create a function that... 
+
+# Loop and import the following...
+
+## Store the values from the regressions in a vector called 
+
+
 
