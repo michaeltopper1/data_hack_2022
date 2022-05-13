@@ -2,7 +2,10 @@
 title: "Week 7"
 author: "Data Hack 2022"
 date: "05/13/2022"
-output: pdf_document
+output:
+    pdf_document:
+    highlight: haddock
+    number_sections: true
 ---
 
 ```{r setup, include=FALSE}
@@ -10,13 +13,18 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-# Check out the
+# Create a function that is the quadratic formula, i.e., you input the coefficients of a quadratic function and the code returns the roots.
 
-# Create a function that... 
+Something like: If you have the equation $ax^2 + bx + c = 0$, the code will give you:
 
-# Loop and import the following...
+$\dfrac{- b + \sqrt{b^2 - 4ac}}{2a}$ and  $\dfrac{- b - \sqrt{b^2 - 4ac}}{2a}$
 
-## Store the values from the regressions in a vector called 
+# 
+
+# (tricky) Create a function that gives you the n-th fibonnaci number, where $n < 16$
+
+# (trickier) Create a function that gives you the n-th fibonnaci number.
+
 
 
 
