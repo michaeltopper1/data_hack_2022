@@ -51,6 +51,8 @@ plot_usmap("counties", fill = "yellow", alpha = 0.25,
 
 Plot a similar map, where counties are in lightblue and exclude Florida.
 
+\newpage
+
 
 2. Use the file `ny_hmfm.csv` and consider the following graph:
 
