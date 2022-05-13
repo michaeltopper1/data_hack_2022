@@ -1,0 +1,43 @@
+---
+title: "Rubrik Competition"
+author: "Data Hack 2022"
+date: "`r format(Sys.time(), '%A %D')`" 
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Students
+
+
+
+
+# Judges
+
+
+
+# Instructors
+
+
+
+# Evaluation items
+
+## Time limit 
+
+## Graphs clarity
+
+## Motivation 
+
+## Data Wrangling Process
+
+## Evidence
+
+## 
+
+
+
+
+
