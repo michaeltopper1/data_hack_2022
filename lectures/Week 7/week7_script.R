@@ -119,8 +119,9 @@ lapply(c(-33,-27,-99,-1),absolute)
 #Great! Now, let's rock and roll!!
 
 #The general idea here is the following:
-#
-
+# Check our folder with data, note the pattern in names
+# import all of those files at once by building a function
+# what are we trying to avoid? spending a bunch of time in the future..
 
 #Where are we?
 
@@ -133,9 +134,7 @@ enr2002 <- read_excel("lectures/Week 7/enrollment/enrollment_2002.xlsx")
 
 enr2003 <- read_excel("lectures/Week 7/enrollment/enrollment_2003.xlsx") #No, I'm not going to do that
 
-
 #...
-
 
 # 1
 
@@ -148,7 +147,6 @@ full_path <- paste0(full_path,"/lectures/Week 7/enrollment")
 
 listy <- list.files(full_path)
 
-
 ## 1.2 import all of them! but wait, one by one?
 
 enr2002 <- read_excel(paste0(full_path,"/",listy[1]))
@@ -156,7 +154,6 @@ enr2002 <- read_excel(paste0(full_path,"/",listy[1]))
 # and....... doing: read_excel(".....listy[2]")
 # ....
 # and....... doing: read_excel(".....listy[9]")
-
 
 # we do: Import everything at once!
 #For that, we have lapply!!!
@@ -176,7 +173,6 @@ list_data <- lapply(listy2,read_excel)  #WARNING! THIS IS GOING TO CREATE A LIST
 
 list_data[1]
 
-
 list_data[9]
 
 #Great! We need to transform this into dataframes so we can merge it eventually:
@@ -185,7 +181,6 @@ enr2008 <- as.data.frame(list_data[7])
 #    ? What would you do next?
 
 # we are going to loop:
-
 
 listy3 <- paste0()
 
@@ -211,7 +206,7 @@ power_import(full_path)
 #Same as before, but with a warning
 
 big_import <- function(full_path){
-  thenames <- "rep" #Just change this part if you want to go aprobados, matricula or repitentes
+  thenames <- "enrollment_" #Just change this part if you want a different name
   if (typeof(full_path)!="character"){
     print("Wrong, argument needs to be a character")
   }
