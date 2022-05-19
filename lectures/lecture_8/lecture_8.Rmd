@@ -3,6 +3,7 @@ title: "Webscraping"
 output: pdf_document
 editor_options: 
   chunk_output_type: console
+linkcolor: blue
 ---
 
 ```{r setup, include=FALSE}
@@ -36,6 +37,8 @@ read_html(link) %>%
 We'll see this in action in the next example.
 
 [Here](https://www.w3schools.com/html/html_attributes.asp) is a helpful link to get you familiar with html elements and attributes...because it's very easy to forget.
+
+[Here](https://www.w3schools.com/cssref/css_selectors.asp) is another helpful link to remember CSS selectors.
 
 ## Example 1: Scraping Students from UCSB
 
