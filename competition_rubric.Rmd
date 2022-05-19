@@ -27,6 +27,7 @@ The following are objective components. You can think of these as check-boxes. A
 - Engagement: Presenters engage the audience and keep the presentation lively. [  /1]
 - Movement: Presenters do not stand still and frozen. [  /1]
 - Group Involvement: Each group member speaks. [  /1]
+- Amount of information: Each slide has a reasonable amount of information, avoiding too much text. [ /1] 
 
 *Total Presentation Accumen Points: *
 
@@ -42,7 +43,7 @@ The following are objective components. You can think of these as check-boxes. A
 
 - Figures/Tables are all clearly labeled/titled. [  /1]
 - Figures/Tables look professional. [  /1]
-- Figures /Tablesconvey a clear message. [  /1]
+- Figures /Tables convey a clear message. [  /1]
 - There is variety in the figures/tables (i.e., not just one type of plot.) [  /1]
 
 *Total Figures/Graphs Points:  *

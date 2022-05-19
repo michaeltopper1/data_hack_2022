@@ -1,41 +1,24 @@
 # Week 7 script
+# C
 
 rm(list = ls())
 
-library(tidyverse)
+library(tidyverse
 library(readxl)
 
-# General plan: Import 10-12 years of enrollment from all highschools in PY (subset clearly)
+# Ultimate goal: Import 9 years of enrollment from different highschools
 
-# use my function to merge them, put them all together & stuff
-
-# do many regressions, store the F-test in a matrix/list
-
-#grapphy?
-
-# three topics:
-
-## import 1
-
-## functions  2
-
-## F-Test  3
-
-# the goal of today's class is to learn about some programming  the for loop, the lapply function and to CREATE a function!
+# the primary goal of today's class is to learn about some programming  the for loop, the lapply function and to CREATE a function!
 # Hopefully we will finish by designing a function that imports several excel files with similar names
 
 #Let's start easy:
 
 # for loop is what you imagine:
-#let's learn the syntax with a basic example
-
-#the syntaxis is always:
 
 ## for-loop syntax
-#for (i in {some specified range}){
+#for (i in ""specified range""){
   ##do something
 #}
-
 
 #example:
 #let's print the first 5 even natural numbers:
@@ -43,14 +26,14 @@ for (i in 1:5){
   print(i*2)
 }
 
-#great.. what if we want to store the values for example?
+#great.. what if we want to store the values in a vector
 
 #First, define where you want to store it:
 even_numbers <- NULL
 for (i in 1:5){
   even_numbers <- i*2
 }
-#bad!
+#bad! cuz only the last one is stored
 
 
 #therefore, we want:
@@ -60,10 +43,9 @@ for (i in 1:5){
 }
 # great!
 
-#Maybe something a little more sofisticated?
-#Fibonacci numbers!!
+#Maybe something a little more sophisticated?
 
-#and let's learn if else
+#let's learn if else
 #if (test_expression) {
 #  statement
 # }
@@ -80,7 +62,7 @@ if (x>4){
   print("Bye")
 }
 
-# Ok, now, let's create the fibonacci sequence:
+# Ok, now, let's create the more sophisticated sequence fibonacci sequence:
 
 #Initialize vector
 fibonacci <- c(1,1)
@@ -178,7 +160,7 @@ list_data[9]
 #Great! We need to transform this into dataframes so we can merge it eventually:
 enr2008 <- as.data.frame(list_data[7])
 
-#    ? What would you do next?
+# ? What would you do next?
 
 # we are going to loop:
 
@@ -201,7 +183,6 @@ power_import <- function(path){
 full_path
 
 power_import(full_path)
-
 
 #Same as before, but with a warning
 
