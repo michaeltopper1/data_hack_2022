@@ -20,16 +20,16 @@ Below is a rubric containing elements upon groups should be judged.
 
 The following are objective components. You can think of these as check-boxes. All presentations should have these components.
 
-### Presentation Accumen 
+### Presentation Acumen 
 
 - Volume: Speakers are clear and speak in a volume such that they can be heard. [  /1]
 - Language: Language is professional and avoids slang. [  /1]
 - Engagement: Presenters engage the audience and keep the presentation lively. [  /1]
 - Movement: Presenters do not stand still and frozen. [  /1]
 - Group Involvement: Each group member speaks. [  /1]
-- Concise Slides: Each slide has a reasonable amount of information, avoiding too much text. [ /1] 
+- Concise Slides: Each slide has a concise/readable amount of information. [ /1] 
 
-*Total Presentation Accumen Points: *
+*Total Presentation Acumen Points: *
 
 ### Motivation
 
