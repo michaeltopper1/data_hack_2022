@@ -27,7 +27,7 @@ The following are objective components. You can think of these as check-boxes. A
 - Engagement: Presenters engage the audience and keep the presentation lively. [  /1]
 - Movement: Presenters do not stand still and frozen. [  /1]
 - Group Involvement: Each group member speaks. [  /1]
-- Amount of information: Each slide has a reasonable amount of information, avoiding too much text. [ /1] 
+- Concise Slides: Each slide has a reasonable amount of information, avoiding too much text. [ /1] 
 
 *Total Presentation Accumen Points: *
 
@@ -48,6 +48,7 @@ The following are objective components. You can think of these as check-boxes. A
 
 *Total Figures/Graphs Points:  *
 
+\newpage
 
 ### Data
 
