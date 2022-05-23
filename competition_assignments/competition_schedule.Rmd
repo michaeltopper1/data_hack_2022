@@ -1,0 +1,70 @@
+---
+title: 'Data Hack 2022: Official Schedule'
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+**All submissions must be emailed to Michael Topper by 2:30pm on 6/3/22 in PDF or PowerPoint format!**
+
+# Rules
+
+Each of the six groups will have 15 minutes to provide a presentation on an issue occurring in California.
+Their job will be to convince the panel of judges that this problem should be given substantial attention by
+California policy makers. For instance, if a group decided to choose rising murder rates as their topic, their
+job is to convince you that this issue is a priority because of X,Y, and Z. Students will be scored on six categories (see rubric for in-depth details):
+
+* Presentation Acumen
+* Motivation
+* Figures/Tables
+* Data Used
+* Presentation Time
+* Logical Flow/Quality of Presentation (were you convinced?)
+
+There will be six judges: three economics faculty from UCSB and three private-sector professionals. Camilo Abbate will be keeping time on all presentations via stop-watch. Group order of presentation will be determined by randomization prior to the event. Michael will email the students at 2:45pm on June 3rd with the ordering. 
+
+Prizes are as follows:
+
+* 1st Prize: $500 Amazon Gift Card
+* 2nd Prize: $200 Amazon Gift Card
+* 3rd Prize: $100 Amazon Gift Card
+
+\newpage
+
+# Schedule
+
+*Please note that the group ordering will be randomized. Hence, Group 1 may not be first, Group 2 may not be second etc.*
+
+**Pre-Competition:**
+
+* Email final presentations to Michael Topper (michaeltopper@ucsb.edu) by *2:30pm*.
+* Michael downloads all presentations onto computer and has ready to load for each group.
+* Michael randomizes group ordering and emails groups the final ordering.
+* All groups arrive by *2:50pm*.
+* Please do not sit in the front row of the classroom—this will be reserved for the six judges.
+
+
+**Competition:**
+
+* Announcement of the event and thank judges and participants. Michael and Camilo will give a brief summary of what was learned throughout the course + introduce the judges. (3:00pm - 3:05) 
+* Group 1 Presentation (3:05 - 3:20)
+* Judges score Group 1 + Group 2 take stage (3:20-3:25)
+* Group 2 Presentation (3:25 - 3:40)
+* Judges score Group 2 + Group 3 take stage (3:40 - 3:45)
+* Group 3 Presentation + Group 4 take stage (3:45 - 4:00)
+* Judges score Group 3 + Group 4 take stage (4:00 - 4:05)
+* Group 4 Presentation (4:05 - 4:20)
+* Judges score Group 4 + Group 5 take stage (4:20 - 4:25)
+* Group 5 Presentation (4:25 - 4:40)
+* Judges score Group 5 + Group 6 take stage (4:40 - 4:45)
+* Group 6 Presentation (4:45 - 5:00)
+* Judges score Group 6  (5:00 - 5:05)
+* Judges - final deliberation. (5:05 - 5:10)
+* Reception  (5:10 - 6:00pm)
+   - Announcment of awards by Michael and Camilo (5:15pm)
+
+
+
